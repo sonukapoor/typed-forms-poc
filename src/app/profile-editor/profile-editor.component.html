@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-between">
+  <div>
+    <form [formGroup]="profileForm">
+      <label for="first-name">First Name*: </label>
+      <input id="first-name" type="text" formControlName="firstName" required />
+
+      <label for="last-name">Last Name: </label>
+      <input id="last-name" type="text" formControlName="lastName" />
+
+      <div formGroupName="address">
+        <h2>Address</h2>
+
+        <label for="house-number">House Number: </label>
+        <input id="house-number" type="number" formControlName="houseNumber" />
+
+        <label for="street">Street: </label>
+        <input id="street" type="text" formControlName="street" />
+
+        <label for="city">City: </label>
+        <input id="city" type="text" formControlName="city" />
+
+        <label for="state">State: </label>
+        <input id="state" type="text" formControlName="state" />
+
+        <label for="zip">Zip Code: </label>
+        <input id="zip" type="text" formControlName="zip" />
+
+        <label for="is-apartment">Is Apartment? </label>
+        <input
+          id="is-apartment"
+          type="checkbox"
+          formControlName="isApartment"
+        />
+      </div>
+    </form>
+
+    <button class="btn btn-primary" (click)="updateProfile()">Set Value</button>
+  </div>
+  <div>
+    <label for="form-type">Generated Type: </label>
+    <textarea id="form-type" readonly [rows]="15" [cols]="80">
+(property) ProfileEditorComponent.profileForm: FormGroup<{
+  firstName: AbstractControl<string, string>;
+  lastName: AbstractControl<string, string>;
+  address: AbstractControl<Partial<{
+      houseNumber: number
+      street: string;
+      city: string;
+      state: string;
+      zip: string;
+      isApartment: boolean;
+  }> | undefined, Partial<...> | undefined>;
+      </textarea
+    >
+
+    <pre>Form Value: {{ profileForm.value | json }}</pre>
+
+    <pre>Form Status: {{ profileForm.status }}</pre>
+  </div>
+</div>

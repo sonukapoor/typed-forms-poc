@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-between">
+  <div>
+    <h2>String</h2>
+    <input type="text" [formControl]="name" />
+    <p>Value: {{ name.value }}</p>
+    <button class="btn btn-primary mb-4" (click)="updateName()">
+      Set Value
+    </button>
+
+    <h2 class="pt-4">Integer</h2>
+
+    <input type="number" [formControl]="age" />
+    <p>Value: {{ age.value }}</p>
+    <button class="btn btn-primary" (click)="updateAge()">Set Value</button>
+  </div>
+  <div>
+    <label for="form-type">Generated Type: </label>
+    <textarea id="form-type" readonly [rows]="3" [cols]="80">
+(property) BasicFormComponent.name: FormControl<string | null>
+(property) BasicFormComponent.age: FormControl<number | null>
+    </textarea>
+  </div>
+</div>
